@@ -1,0 +1,19 @@
+import random
+
+def generar_contraseña():
+    letras = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    numeros = "1234567890"
+    simbolos = "/)(+-&_$#@*;!?][✓{{∆§×÷π√~£¢€¥^%"
+
+    unir = f'{letras}{numeros}{simbolos}'
+    longitud = 10
+
+    while True:
+        contraseña = random.sample(unir, longitud)
+        password_final = "".join(contraseña)
+        yield password_final
+
+generador_contraseña = generar_contraseña()
+
+# Imprime una nueva contraseña cada vez que se llama al generador
+print(next(generador_contraseña))
